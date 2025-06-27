@@ -1,0 +1,10 @@
+---
+- name: Update APT package index on all Debian/Ubuntu servers
+  hosts: all
+  become: yes  # Ensures it runs with sudo
+  gather_facts: yes
+
+  tasks:
+    - name: Update apt cache (apt update)
+      ansible.builtin.apt:
+        update_cache: yes
